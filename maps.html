@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Tour Application</title>
+<style>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #008080; /* Teal */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+nav {
+    background-color: #005f5f; /* Darker teal */
+    padding: 12px 0;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 6px;
+}
+
+nav ul li a:hover {
+    background-color: #00a5a5;
+    color: #f1f1f1;
+}
+
+/* Main Content */
+main {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Sections */
+section {
+    margin: 25px auto;
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+/* Headings */
+h2 {
+    color: #008080;
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #eeeeee;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Map Container */
+#map-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#map-container iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    border: 3px solid #008080;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Search Container */
+.search-container {
+    margin: 30px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.search-container input {
+    padding: 12px;
+    width: 80%;
+    max-width: 350px;
+    border: 2px solid #008080;
+    border-radius: 6px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-container input:focus {
+    border-color: #00a5a5;
+    box-shadow: 0 2px 8px rgba(0, 165, 165, 0.3);
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
+
+/* Distance Display */
+.distance {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #005f5f;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+<body>
+<header>
+<h1>Welcome to the College Tour Application</h1>
+<nav>
+<ul>
+<li><a href="#map">Campus Map</a></li>
+<li><a href="#buildings">Buildings</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#profile">Profile</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<section id="map">
+<h2>Interactive Campus Map</h2>
+<div id="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f0f0f0f%3A0x0!2sMelbourne%20University!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau" allowfullscreen="" loading="lazy"></iframe>
+</div>
+</section>
+
+<section id="buildings">
+<h2>Buildings and Facilities</h2>
+<div class="search-container">
+<input type="text" id="buildingSearch" placeholder="Search for buildings..." onkeyup="searchBuildings()">
+</div>
+<ul id="buildingList">
+<li>
+<h3>CMR University Lakeside</h3>
+<p>Description: This is the Lakeside campus of CMR University.</p>
+<p>Hours: 8 AM - 8 PM</p>
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=13.117650628971115,77.65581777041695" target="_blank">Get Directions</a></p>
+</li>
+<li>
+<h3>SOET</h3>
+<p>Description: This building houses the Computer Science department.</p>
+<p>Hours: 8 AM - 8 PM</p>
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=13.117650628971115,77.65581777041695" target="_blank">Get Directions</a></p>
+</li>
+<li>
+<h3>SSCS</h3>
+<p>Description: This building is home to the Library.</p>
+<p>Hours: 9 AM - 10 PM</p>
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=13.117650628971115,77.65581777041695" target="_blank">Get Directions</a></p>
+</li>
+<li>
+<h3>SOD</h3>
+<p>Description: This building is for the Arts department.</p>
+<p>Hours: 8 AM - 6 PM</p>
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=13.117650628971115,77.65581777041695" target="_blank">Get Directions</a></p>
+</li>
+<!-- Add more buildings as needed -->
+</ul>
+</section>
+
+<section id="events">
+<h2>Upcoming Events</h2>
+<div class="search-container">
+<input type="text" id="eventSearch" placeholder="Search for events..." onkeyup="searchEvents()">
+</div>
+<ul id="eventList">
+<li>
+<h3>Open House</h3>
+<p>Date: March 15, 2023</p>
+<p>Location: Main Auditorium</p>
+</li>
+<li>
+<h3>Guest Lecture</h3>
+<p>Date: March 20, 2023</p>
+<p>Location: Room 101</p>
+</li>
+<li>
+<h3>Art Exhibition</h3>
+<p>Date: March 25, 2023</p>
+<p>Location: Arts Building</p>
+</li>
+<!-- Add more events as needed -->
+</ul>
+</section>
+
+<section id="profile">
+<h2>User Profile</h2>
+<p>Welcome, [User Name]!</p>
+<button onclick="showProfileAlert()">Edit Profile</button>
+</section>
+</main>
+
+<footer>
+<p>&copy; 2023 College Tour Application</p>
+</footer>
+
+<script>
+function showProfileAlert() {
+alert('Profile feature coming soon!');
+}
+
+function searchBuildings() {
+const input = document.getElementById('buildingSearch').value.toLowerCase();
+const buildingList = document.getElementById('buildingList').getElementsByTagName('li');
+
+for (let i = 0; i < buildingList.length; i++) {
+const buildingName = buildingList[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+if (buildingName.includes(input)) {
+buildingList[i].style.display = '';
+} else {
+buildingList[i].style.display = 'none';
+}
+}
+}
+
+function searchEvents() {
+const input = document.getElementById('eventSearch').value.toLowerCase();
+const eventList = document.getElementById('eventList').getElementsByTagName('li');
+
+for (let i = 0; i < eventList.length; i++) {
+const eventName = eventList[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+if (eventName.includes(input)) {
+eventList[i].style.display = '';
+} else {
+eventList[i].style.display = 'none';
+}
+}
+}
+</script>
+</body>
+</html>

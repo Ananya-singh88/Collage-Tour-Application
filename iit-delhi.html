@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT Delhi - Collage Tour</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>/* General Styles */
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f5f5f5;
+          color: #002b00;
+      }
+      
+      /* Header */
+      header {
+          background-color: #004d00;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          font-size: 24px;
+      }
+      
+      /* Navbar */
+      nav {
+          background-color: #003300;
+          padding: 10px;
+      }
+      
+      nav ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          text-align: center;
+      }
+      
+      nav ul li {
+          display: inline;
+          margin: 0 15px;
+      }
+      
+      nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-size: 18px;
+      }
+      
+      /* Sections */
+      section {
+          margin: 20px auto;
+          width: 90%;
+          max-width: 800px;
+          padding: 20px;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Collapsible Section */
+      .collapsible {
+          background-color: #004d00;
+          color: white;
+          padding: 10px;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          text-align: left;
+          font-size: 18px;
+          margin-top: 10px;
+      }
+      
+      .collapsible-content {
+          display: none;
+          padding: 10px;
+          background-color: #e6f2e6;
+      }
+      
+      /* Course List */
+      .course-list {
+          list-style: none;
+          padding: 0;
+      }
+      
+      .course-list li {
+          background: #004d00;
+          color: white;
+          padding: 10px;
+          margin: 5px 0;
+          cursor: pointer;
+          border-radius: 5px;
+          text-align: center;
+      }
+      
+      .course-list li:hover {
+          background: #002b00;
+      }
+      
+      /* Footer */
+      footer {
+          text-align: center;
+          padding: 20px;
+          background: #002b00;
+          color: white;
+      }
+      </style>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1 class="logo">Collage Tour</h1>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link" onclick="showEvents()">Events</a>
+            <a href="cmr.html" class="nav-link">CMR University</a>
+            <a href="reva.html" class="nav-link">Reva University</a>
+            <a href="pes.html" class="nav-link">PES University</a>
+            <a href="iit-delhi.html" class="nav-link active">IIT Delhi</a>
+            <a href="iit-bombay.html" class="nav-link">IIT Bombay</a>
+        </div>
+    </nav>
+
+    <header>
+      Indian Institute of Technology, Delhi
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+      <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="iit-delhi.html">IIT Delhi</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+  </nav>
+
+  <!-- Introduction Section -->
+  <section>
+      <h2>About IIT Delhi</h2>
+      <p>
+          IIT Delhi is one of the premier engineering institutions in India, renowned for its cutting-edge research and academic excellence. 
+          Located in the heart of Delhi, it offers a vibrant learning environment for students.
+      </p>
+      <button class="collapsible">Facilities</button>
+      <div class="collapsible-content">
+          <ul>
+              <li>State-of-the-art Research Labs</li>
+              <li>World-Class Faculty & Industry Collaborations</li>
+              <li>Advanced Computing & AI Centers</li>
+              <li>Incubation Hub for Startups</li>
+              <li>Excellent Placement & Internship Opportunities</li>
+          </ul>
+      </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section>
+      <h2>Courses Offered</h2>
+      <p>Click on a course to learn more.</p>
+      <ul id="course-list" class="course-list">
+          <!-- Dynamic Course List will be inserted by script.js -->
+      </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+      &copy; 2025 IIT Delhi. All Rights Reserved.
+  </footer>
+
+    <script src="script.js"></script>
+    <script>// Collapsible Section
+      document.addEventListener("DOMContentLoaded", function () {
+          let collapsibles = document.querySelectorAll(".collapsible");
+          
+          collapsibles.forEach(button => {
+              button.addEventListener("click", function () {
+                  this.classList.toggle("active");
+                  let content = this.nextElementSibling;
+                  if (content.style.display === "block") {
+                      content.style.display = "none";
+                  } else {
+                      content.style.display = "block";
+                  }
+              });
+          });
+      });
+      
+      // Dynamic Course List
+      let courses = [
+          "B.Tech in Computer Science",
+          "B.Tech in Electrical Engineering",
+          "B.Tech in Mechanical Engineering",
+          "B.Tech in Civil Engineering",
+          "M.Tech in Artificial Intelligence",
+          "M.Tech in Data Science",
+          "MBA in Technology Management",
+          "PhD in Quantum Computing"
+      ];
+      
+      let courseList = document.getElementById("course-list");
+      
+      courses.forEach(course => {
+          let li = document.createElement("li");
+          li.textContent = course;
+          li.onclick = function () {
+              alert("More details about " + course);
+          };
+          courseList.appendChild(li);
+      });
+      </script>
+</body>
+</html>

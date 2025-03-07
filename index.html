@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Tour Application</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1 class="logo">Collage Tour</h1>
+        </div>
+        <div class="nav-right">
+            <a href="#" class="nav-link active" onclick="showHome()">Home</a>
+            <a href="#" class="nav-link" onclick="showEvents()">Events</a>
+            <a href="cmr.html" class="nav-link">CMR University</a>
+            <a href="reva.html" class="nav-link">Reva University</a>
+            <a href="pes.html" class="nav-link">PES University</a>
+            <a href="iit-delhi.html" class="nav-link">IIT Delhi</a>
+            <a href="iit-bombay.html" class="nav-link">IIT Bombay</a>
+        </div>
+    </nav>
+    <!-- Landing Page Content -->
+    <div class="landing-page">
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search events, colleges..." oninput="handleSearch()">
+            <button class="search-btn" onclick="handleSearch()">Search</button>
+        </div>
+
+        <!-- Search Results Section -->
+        <div id="search-results" class="search-results"></div>
+
+        <!-- Admin and Student Sections -->
+        <div class="user-sections">
+            <div class="admin-section">
+                <h2>Admin</h2>
+                <button class="btn" onclick="showLoginPage('admin')">Admin Login</button>
+                <button class="btn" onclick="showAdminDashboard()">Admin Dashboard</button>
+            </div>
+            <!-- <div class='sidebar'>
+                <h2>Admin Dashboard</h2>
+                <ul>
+                    <li onclick="showCourseManagement()">Course Management</li>
+                    <li onclick="showEventManagement()">Event Management</li>
+                    <li onclick="showMaps()">Maps</li>
+                    <li onclick="showFacilities()">Facilities</li>
+                    <li onclick="showHostel()">Hostel</li>
+                </ul>
+                <div class="bottom-container">
+                    <div class="admin-info">
+                        <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Admin Photo">
+                        <h3>Admin</h3>
+                    </div>
+                    <button class="back-btn" onclick="goBack()">Back</button>
+                    <button class="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div> -->
+            <div class="student-section">
+                <h2>Student</h2>
+                <button class="btn" onclick="showLoginPage('student')">Student Login</button>
+                <button class="btn" onclick="showRegistrationPage()">Student Registration</button>
+            </div>
+        </div>
+        <!-- Admin Login Popup -->
+<!-- Admin Login Popup -->
+<section id="admin-login" style="display: none;">
+    <h2>Admin Login</h2>
+    <button class="back-btn" onclick="hideLoginPage()">X</button>
+    <div class="form-container">
+        <input type="text" placeholder="Admin Username" id="admin-username">
+        <input type="password" placeholder="Admin Password" id="admin-password">
+        <button onclick="adminLogin()">Login</button>
+    </div>
+</section>
+
+<!-- Student Login Popup -->
+<!-- <section id="student-login" style="display: none;">
+    <h2>Student Login</h2>
+    <button class="back-btn" onclick="hideLoginPage()">X</button>
+    <div class="form-container">
+        <input type="text" placeholder="Student Username" id="student-username">
+        <input type="password" placeholder="Student Password" id="student-password">
+        <button onclick="studentLogin()">Login</button>
+    </div>
+</section> -->
+<!-- Student Registration Section -->
+<section id="student-registration" style="display: none;">
+    <h2>Student Registration</h2>
+    <button class="back-btn" onclick="hideRegistrationPage()">X</button>
+    <div class="form-container">
+        <input type="text" placeholder="Username" id="reg-username">
+        <input type="password" placeholder="Password" id="reg-password">
+        <input type="text" placeholder="Name" id="reg-name">
+        <input type="email" placeholder="Email" id="reg-email">
+        <button onclick="registerStudent()">Register</button>
+    </div>
+</section>
+
+<!-- Student Login Section -->
+<section id="student-login" style="display: none;">
+    <h2>Student Login</h2>
+    <button class="back-btn" onclick="hideLoginPage()">X</button>
+    <div class="form-container">
+        <input type="text" placeholder="Student Username" id="student-username">
+        <input type="password" placeholder="Student Password" id="student-password">
+        <button onclick="studentLogin()">Login</button>
+    </div>
+</section>
+<!-- CMR University Section -->
+
+
+<!-- Add similar sections for other collages (St. Joseph's College, IIT Bombay, IIT Delhi) -->
+    </div>
+    
+
+    <!-- Include all other sections (e.g., university sections, login sections) from your original code here -->
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>

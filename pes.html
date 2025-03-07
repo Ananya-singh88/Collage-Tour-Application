@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PES University - Collage Tour</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+      /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Body Styling */
+body {
+    background-color: #f0f4ff; /* Light Blue Background */
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #001f3f; /* Dark Blue */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #003366;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #66b3ff;
+}
+
+/* Section Styling */
+section {
+    padding: 40px 10%;
+    margin: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Course List */
+.course-list {
+    list-style: none;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.course-list li {
+    background: #00509e;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.course-list li:hover {
+    background: #002855;
+}
+
+/* Collapsible Sections */
+.collapsible {
+    background: #003366;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.collapsible:hover {
+    background: #001f3f;
+}
+
+.collapsible-content {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #003366;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+</style>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1 class="logo">Collage Tour</h1>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link" onclick="showEvents()">Events</a>
+            <a href="cmr.html" class="nav-link">CMR University</a>
+            <a href="reva.html" class="nav-link">Reva University</a>
+            <a href="pes.html" class="nav-link active">PES University</a>
+            <a href="iit-delhi.html" class="nav-link">IIT Delhi</a>
+            <a href="iit-bombay.html" class="nav-link">IIT Bombay</a>
+        </div>
+    </nav>
+
+    <header>
+      PES University - Shaping the Future
+  </header>
+
+  <!-- Navbar -->
+  <nav>
+      <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pes.html">PES University</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+  </nav>
+
+  <!-- Introduction Section -->
+  <section>
+      <h2>About PES University</h2>
+      <p>
+          PES University is one of India's leading private universities, known for its excellence in engineering, business, and research. 
+          It is located in Bangalore and offers world-class facilities to its students.
+      </p>
+      <button class="collapsible">Facilities</button>
+      <div class="collapsible-content">
+          <ul>
+              <li>Modern Laboratories & Research Centers</li>
+              <li>Smart Classrooms & Digital Learning</li>
+              <li>World-Class Sports Facilities</li>
+              <li>Incubation Centers for Startups</li>
+              <li>Excellent Placement & Internship Programs</li>
+          </ul>
+      </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section>
+      <h2>Courses Offered</h2>
+      <p>Click on a course to learn more.</p>
+      <ul id="course-list" class="course-list">
+          <!-- Dynamic Course List will be inserted by script.js -->
+      </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 20px; background: #001f3f; color: white;">
+      &copy; 2025 PES University. All Rights Reserved.
+  </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    // Dynamic Course Listing for PES University
+    const courses = [
+        "B.Tech in Computer Science & Engineering",
+        "M.Tech in Artificial Intelligence",
+        "BBA in Business Analytics",
+        "MBA in Finance & Marketing",
+        "M.Sc in Applied Mathematics",
+        "B.Des in Product Design",
+        "Ph.D. in Robotics & Automation"
+    ];
+
+    const courseList = document.getElementById("course-list");
+
+    courses.forEach(course => {
+        let li = document.createElement("li");
+        li.textContent = course;
+        li.addEventListener("click", () => {
+            alert(`More info about ${course} at PES University coming soon!`);
+        });
+        courseList.appendChild(li);
+    });
+
+    // Collapsible Sections
+    const collapsibleButtons = document.querySelectorAll(".collapsible");
+
+    collapsibleButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

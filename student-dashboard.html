@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - University Tour</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Student Dashboard</h2>
+        <ul>
+            <li onclick="showMaps()">Maps</li>
+            <li onclick="showFacilities()">Facilities</li>
+            <li onclick="showHostel()">Hostel</li>
+        </ul>
+        <div class="bottom-container">
+            <div class="admin-info">
+                <img src="https://www.w3schools.com/w3images/avatar2.png" alt="Student Photo">
+                <h3>Student</h3>
+            </div>
+            <button class="back-btn" onclick="goBack()">Back</button>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    <div class="main-content">
+        <h1>Welcome, Student!</h1>
+        <p>Explore the campus facilities and hostel details.</p>
+    </div>
+</body>
+</html>

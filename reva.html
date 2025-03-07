@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reva University - Collage Tour</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+     /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Body Styling */
+body {
+    background-color: #fff7eb; /* Light Orange Background */
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #993f03; /* Orange */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #993f03;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ffdd99;
+}
+
+/* Section Styling */
+section {
+    padding: 40px 10%;
+    margin: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Course List */
+.course-list {
+    list-style: none;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.course-list li {
+    background: #993f03;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.course-list li:hover {
+    background: #993f03;
+}
+
+/* Collapsible Sections */
+.collapsible {
+    background: #993f03;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.collapsible:hover {
+    background: #993f03;
+}
+
+.collapsible-content {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #993f03;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    section {
+        padding: 20px;
+    }
+}
+
+
+</style>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <h1 class="logo">Collage Tour</h1>
+        </div>
+        <div class="nav-right">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#" class="nav-link" onclick="showEvents()">Events</a>
+            <a href="cmr.html" class="nav-link">CMR University</a>
+            <a href="reva.html" class="nav-link active">Reva University</a>
+            <a href="pes.html" class="nav-link">PES University</a>
+            <a href="iit-delhi.html" class="nav-link">IIT Delhi</a>
+            <a href="iit-bombay.html" class="nav-link">IIT Bombay</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>REVA University</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#courses">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About REVA University</h2>
+        <p>REVA University is one of the top-ranked universities in India, offering world-class education across multiple disciplines. The university has a state-of-the-art campus with modern amenities to support student learning and development.</p>
+    </section>
+
+    <section id="facilities">
+        <h2>Facilities at REVA</h2>
+        <ul>
+            <li>Well-equipped Laboratories</li>
+            <li>Advanced Research Centers</li>
+            <li>Sports Complex and Gym</li>
+            <li>Library with Digital Access</li>
+            <li>Hostel Facilities</li>
+        </ul>
+    </section>
+
+    <section id="courses">
+        <h2>Courses Offered</h2>
+        <ul id="course-list"></ul>
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+     document.addEventListener("DOMContentLoaded", function () {
+    // Dynamic Course Listing
+    const courses = [
+        "B.Tech in Computer Science",
+        "MBA in Business Management",
+        "BBA in International Business",
+        "M.Sc in Data Science",
+        "Ph.D. in Artificial Intelligence",
+        "BCA in Cloud Computing",
+        "B.Com in Financial Technology"
+    ];
+
+    const courseList = document.getElementById("course-list");
+
+    courses.forEach(course => {
+        let li = document.createElement("li");
+        li.textContent = course;
+        li.addEventListener("click", () => {
+            alert(`More info about ${course} coming soon!`);
+        });
+        courseList.appendChild(li);
+    });
+
+    // Collapsible Sections
+    const collapsibleButtons = document.querySelectorAll(".collapsible");
+
+    collapsibleButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
